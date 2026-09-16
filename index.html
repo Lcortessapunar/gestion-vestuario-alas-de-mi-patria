@@ -186,7 +186,10 @@
 
       <div class="caja">
         <h3>Zonas registradas</h3>
-        <p>Aún no hay zonas registradas.</p>
+
+<div id="lista-zonas">
+  <p>Aún no hay zonas registradas.</p>
+</div>
 
         <a href="#form-zona" class="boton">+ Nueva zona</a>
         <div id="form-zona" class="caja">
@@ -321,6 +324,35 @@
     document.getElementById("nombre-zona").value = "";
     document.getElementById("descripcion-zona").value = "";
   }
+  function mostrarZonas() {
+  const lista = document.getElementById("lista-zonas");
+  const zonas = JSON.parse(localStorage.getItem("zonas")) || [];
+
+  if (zonas.length === 0) {
+    lista.innerHTML = "<p>Aún no hay zonas registradas.</p>";
+    return;
+  }
+
+  lista.innerHTML = "";
+
+  zonas.forEach(function(zona) {
+    const tarjeta = document.createElement("div");
+
+    tarjeta.style.background = "#f5f6fa";
+    tarjeta.style.padding = "15px";
+    tarjeta.style.marginTop = "10px";
+    tarjeta.style.borderRadius = "8px";
+
+    tarjeta.innerHTML = `
+      <strong>📍 ${zona.nombre}</strong>
+      <p>${zona.descripcion || "Sin descripción."}</p>
+    `;
+
+    lista.appendChild(tarjeta);
+  });
+}
+
+mostrarZonas();
 </script>
   
 </body>
