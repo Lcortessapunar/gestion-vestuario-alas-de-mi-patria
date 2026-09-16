@@ -297,6 +297,31 @@
     </section>
 
   </main>
+<script>
+  function guardarZona() {
+    const nombre = document.getElementById("nombre-zona").value.trim();
+    const descripcion = document.getElementById("descripcion-zona").value.trim();
 
+    if (nombre === "") {
+      alert("Por favor, escribe el nombre de la zona.");
+      return;
+    }
+
+    const zonas = JSON.parse(localStorage.getItem("zonas")) || [];
+
+    zonas.push({
+      nombre: nombre,
+      descripcion: descripcion
+    });
+
+    localStorage.setItem("zonas", JSON.stringify(zonas));
+
+    alert("Zona guardada correctamente.");
+
+    document.getElementById("nombre-zona").value = "";
+    document.getElementById("descripcion-zona").value = "";
+  }
+</script>
+  
 </body>
 </html>
