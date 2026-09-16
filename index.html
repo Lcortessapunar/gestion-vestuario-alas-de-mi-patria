@@ -3,97 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Gestión de Vestuario | Alas de mi Patria</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #f4f4f4;
+            background: #f4f5f7;
+            color: #222;
         }
 
-        .barra {
-            background: #222;
+        /* MENÚ LATERAL */
+
+        .menu {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            height: 100vh;
+            background: #202124;
             color: white;
-            padding: 20px;
+            padding: 25px 15px;
         }
 
-        .barra h1 {
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h2 {
             margin: 0;
-            font-size: 22px;
+            font-size: 20px;
         }
 
-        .barra p {
-            margin-bottom: 0;
-            color: #ccc;
+        .logo p {
+            margin-top: 6px;
+            font-size: 13px;
+            color: #bdbdbd;
         }
+
+        .boton-menu {
+            width: 100%;
+            border: none;
+            background: transparent;
+            color: white;
+            text-align: left;
+            padding: 13px 15px;
+            margin-bottom: 5px;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .boton-menu:hover {
+            background: #383a3d;
+        }
+
+        /* CONTENIDO */
 
         .contenido {
-            padding: 25px;
+            margin-left: 240px;
+            padding: 35px;
         }
+
+        .encabezado h1 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .encabezado p {
+            color: #666;
+            margin-top: 8px;
+        }
+
+        /* TARJETAS */
 
         .tarjetas {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
             gap: 20px;
-            margin-top: 25px;
+            margin-top: 30px;
         }
 
         .tarjeta {
             background: white;
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .tarjeta h3 {
+            margin-top: 0;
+            font-size: 16px;
         }
 
         .numero {
-            font-size: 35px;
+            font-size: 34px;
             font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .descripcion {
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* AVISO */
+
+        .bienvenida {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        .bienvenida h2 {
+            margin-top: 0;
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 700px) {
+
+            .menu {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            .contenido {
+                margin-left: 0;
+                padding: 20px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <header class="barra">
-        <h1>Alas de mi Patria</h1>
-        <p>Gestión de Vestuario</p>
-    </header>
+    <!-- MENÚ -->
+
+    <aside class="menu">
+
+        <div class="logo">
+            <h2>Alas de mi Patria</h2>
+            <p>Gestión de Vestuario</p>
+        </div>
+
+        <button class="boton-menu">🏠 Inicio</button>
+
+        <button class="boton-menu">📍 Vestuario por zona</button>
+
+        <button class="boton-menu">👗 Inventario</button>
+
+        <button class="boton-menu">👥 Personas</button>
+
+        <button class="boton-menu">📅 Presentaciones</button>
+
+        <button class="boton-menu">🤝 Préstamos</button>
+
+        <button class="boton-menu">🔧 Reparaciones</button>
+
+        <button class="boton-menu">📜 Historial</button>
+
+    </aside>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
 
     <main class="contenido">
 
-        <h2>Panel principal</h2>
+        <section class="encabezado">
 
-        <p>
-            Sistema de gestión de vestuario del
-            Ballet Folclórico Alas de mi Patria.
-        </p>
+            <h1>Panel principal</h1>
+
+            <p>
+                Sistema de gestión de vestuario del
+                Ballet Folclórico Alas de mi Patria.
+            </p>
+
+        </section>
+
+
+        <!-- RESUMEN -->
 
         <section class="tarjetas">
 
             <div class="tarjeta">
-                <h3>Vestuarios</h3>
+
+                <h3>👗 Vestuarios</h3>
+
                 <div class="numero">0</div>
-                <p>Registrados</p>
+
+                <div class="descripcion">
+                    Registrados
+                </div>
+
             </div>
 
-            <div class="tarjeta">
-                <h3>Disponibles</h3>
-                <div class="numero">0</div>
-                <p>Actualmente</p>
-            </div>
 
             <div class="tarjeta">
-                <h3>Préstamos</h3>
+
+                <h3>✅ Disponibles</h3>
+
                 <div class="numero">0</div>
-                <p>Activos</p>
+
+                <div class="descripcion">
+                    Actualmente
+                </div>
+
             </div>
 
+
             <div class="tarjeta">
-                <h3>Reparaciones</h3>
+
+                <h3>🤝 Préstamos</h3>
+
                 <div class="numero">0</div>
-                <p>Pendientes</p>
+
+                <div class="descripcion">
+                    Activos
+                </div>
+
             </div>
+
+
+            <div class="tarjeta">
+
+                <h3>🔧 Reparaciones</h3>
+
+                <div class="numero">0</div>
+
+                <div class="descripcion">
+                    Pendientes
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- BIENVENIDA -->
+
+        <section class="bienvenida">
+
+            <h2>Bienvenido al sistema</h2>
+
+            <p>
+                Desde este sistema podremos administrar,
+                registrar y controlar el vestuario del Ballet
+                Folclórico Alas de mi Patria.
+            </p>
+
+            <p>
+                Próximamente podrás registrar vestuarios,
+                componentes, personas, préstamos,
+                reparaciones y presentaciones.
+            </p>
 
         </section>
 
