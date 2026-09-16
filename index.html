@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gestión de Vestuario | Alas de mi Patria</title>
+    <title>Alas de mi Patria | Gestión de Vestuario</title>
 
     <style>
 
         * {
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -29,12 +33,13 @@
             width: 240px;
             height: 100vh;
             background: #202124;
-            color: white;
             padding: 25px 15px;
+            overflow-y: auto;
         }
 
         .logo {
             text-align: center;
+            color: white;
             margin-bottom: 30px;
         }
 
@@ -44,29 +49,22 @@
         }
 
         .logo p {
-            color: #bbb;
+            color: #aaa;
             font-size: 13px;
         }
 
-        .boton-menu {
-            width: 100%;
-            border: none;
-            background: transparent;
+        .menu a {
+            display: block;
             color: white;
-            text-align: left;
+            text-decoration: none;
             padding: 13px 15px;
             margin-bottom: 5px;
             border-radius: 8px;
             font-size: 14px;
-            cursor: pointer;
         }
 
-        .boton-menu:hover {
+        .menu a:hover {
             background: #383a3d;
-        }
-
-        .boton-menu.activo {
-            background: #4a4d52;
         }
 
         /* CONTENIDO */
@@ -76,12 +74,16 @@
             padding: 35px;
         }
 
-        .encabezado h1 {
-            margin: 0;
-            font-size: 30px;
+        section {
+            margin-bottom: 80px;
         }
 
-        .encabezado p {
+        h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .subtitulo {
             color: #666;
         }
 
@@ -102,42 +104,28 @@
         }
 
         .numero {
-            font-size: 34px;
+            font-size: 35px;
             font-weight: bold;
-            margin-top: 10px;
         }
 
-        .descripcion {
-            color: #777;
-            font-size: 13px;
-        }
+        /* CAJAS */
 
-        /* SECCIONES */
-
-        .seccion {
+        .caja {
             background: white;
-            margin-top: 25px;
             padding: 25px;
+            margin-top: 25px;
             border-radius: 12px;
             box-shadow: 0 3px 12px rgba(0,0,0,0.06);
         }
 
-        .seccion h2 {
-            margin-top: 0;
-        }
-
-        .boton-principal {
+        .boton {
+            display: inline-block;
             background: #202124;
             color: white;
-            border: none;
             padding: 12px 18px;
             border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .boton-principal:hover {
-            background: #383a3d;
+            text-decoration: none;
+            margin-top: 10px;
         }
 
         /* CELULAR */
@@ -165,7 +153,7 @@
 <body>
 
 
-    <!-- MENÚ LATERAL -->
+    <!-- MENÚ -->
 
     <aside class="menu">
 
@@ -178,60 +166,40 @@
         </div>
 
 
-        <button class="boton-menu activo" onclick="mostrarSeccion('inicio', this)">
-            🏠 Inicio
-        </button>
+        <a href="#inicio">🏠 Inicio</a>
 
-        <button class="boton-menu" onclick="mostrarSeccion('zona', this)">
-            📍 Vestuario por zona
-        </button>
+        <a href="#zona">📍 Vestuario por zona</a>
 
-        <button class="boton-menu" onclick="mostrarSeccion('inventario', this)">
-            👗 Inventario
-        </button>
+        <a href="#inventario">👗 Inventario</a>
 
-        <button class="boton-menu" onclick="mostrarSeccion('personas', this)">
-            👥 Personas
-        </button>
+        <a href="#personas">👥 Personas</a>
 
-        <button class="boton-menu" onclick="mostrarSeccion('presentaciones', this)">
-            📅 Presentaciones
-        </button>
+        <a href="#presentaciones">📅 Presentaciones</a>
 
-        <button class="boton-menu" onclick="mostrarSeccion('prestamos', this)">
-            🤝 Préstamos
-        </button>
+        <a href="#prestamos">🤝 Préstamos</a>
 
-        <button class="boton-menu" onclick="mostrarSeccion('reparaciones', this)">
-            🔧 Reparaciones
-        </button>
+        <a href="#reparaciones">🔧 Reparaciones</a>
 
-        <button class="boton-menu" onclick="mostrarSeccion('historial', this)">
-            📜 Historial
-        </button>
+        <a href="#historial">📜 Historial</a>
 
     </aside>
 
 
     <!-- CONTENIDO -->
 
-    <main class="contenido" id="contenido">
+    <main class="contenido">
 
 
         <!-- INICIO -->
 
         <section id="inicio">
 
-            <div class="encabezado">
+            <h1>Panel principal</h1>
 
-                <h1>Panel principal</h1>
-
-                <p>
-                    Sistema de gestión de vestuario del
-                    Ballet Folclórico Alas de mi Patria.
-                </p>
-
-            </div>
+            <p class="subtitulo">
+                Sistema de gestión de vestuario del
+                Ballet Folclórico Alas de mi Patria.
+            </p>
 
 
             <div class="tarjetas">
@@ -242,9 +210,7 @@
 
                     <div class="numero">0</div>
 
-                    <div class="descripcion">
-                        Registrados
-                    </div>
+                    <p>Registrados</p>
 
                 </div>
 
@@ -255,9 +221,7 @@
 
                     <div class="numero">0</div>
 
-                    <div class="descripcion">
-                        Actualmente
-                    </div>
+                    <p>Actualmente</p>
 
                 </div>
 
@@ -268,9 +232,7 @@
 
                     <div class="numero">0</div>
 
-                    <div class="descripcion">
-                        Activos
-                    </div>
+                    <p>Activos</p>
 
                 </div>
 
@@ -281,28 +243,20 @@
 
                     <div class="numero">0</div>
 
-                    <div class="descripcion">
-                        Pendientes
-                    </div>
+                    <p>Pendientes</p>
 
                 </div>
 
             </div>
 
 
-            <div class="seccion">
+            <div class="caja">
 
                 <h2>Bienvenido</h2>
 
                 <p>
-                    Desde aquí podremos administrar y controlar
-                    todo el vestuario del Ballet Folclórico
-                    Alas de mi Patria.
-                </p>
-
-                <p>
-                    Utiliza el menú lateral para navegar por
-                    las diferentes áreas del sistema.
+                    Este sistema permitirá administrar el
+                    vestuario del Ballet Folclórico Alas de mi Patria.
                 </p>
 
             </div>
@@ -312,31 +266,26 @@
 
         <!-- VESTUARIO POR ZONA -->
 
-        <section id="zona" style="display:none;">
+        <section id="zona">
 
-            <div class="encabezado">
+            <h1>📍 Vestuario por zona</h1>
 
-                <h1>📍 Vestuario por zona</h1>
+            <p class="subtitulo">
+                Consulta dónde se encuentra cada vestuario.
+            </p>
 
-                <p>
-                    Visualiza dónde se encuentra cada vestuario
-                    y cómo está compuesto.
-                </p>
+            <div class="caja">
 
-            </div>
-
-            <div class="seccion">
-
-                <h2>Zonas registradas</h2>
+                <h2>Zonas</h2>
 
                 <p>
-                    Aquí aparecerán las zonas que registremos
-                    posteriormente.
+                    Aquí registraremos las diferentes zonas
+                    donde se almacena el vestuario.
                 </p>
 
-                <button class="boton-principal">
+                <a href="#" class="boton">
                     + Nueva zona
-                </button>
+                </a>
 
             </div>
 
@@ -345,31 +294,26 @@
 
         <!-- INVENTARIO -->
 
-        <section id="inventario" style="display:none;">
+        <section id="inventario">
 
-            <div class="encabezado">
+            <h1>👗 Inventario</h1>
 
-                <h1>👗 Inventario</h1>
+            <p class="subtitulo">
+                Registro de vestuarios y componentes.
+            </p>
 
-                <p>
-                    Registro y control de todos los vestuarios
-                    y sus componentes.
-                </p>
+            <div class="caja">
 
-            </div>
-
-            <div class="seccion">
-
-                <h2>Inventario de vestuario</h2>
+                <h2>Inventario</h2>
 
                 <p>
-                    Aquí podremos agregar vestuarios,
+                    Aquí podremos registrar vestuarios,
                     componentes, cantidades y estados.
                 </p>
 
-                <button class="boton-principal">
+                <a href="#" class="boton">
                     + Nuevo vestuario
-                </button>
+                </a>
 
             </div>
 
@@ -378,31 +322,27 @@
 
         <!-- PERSONAS -->
 
-        <section id="personas" style="display:none;">
+        <section id="personas">
 
-            <div class="encabezado">
+            <h1>👥 Personas</h1>
 
-                <h1>👥 Personas</h1>
+            <p class="subtitulo">
+                Personas relacionadas con el vestuario.
+            </p>
 
-                <p>
-                    Personas que participan en préstamos,
-                    presentaciones y entregas de vestuario.
-                </p>
-
-            </div>
-
-            <div class="seccion">
+            <div class="caja">
 
                 <h2>Personas registradas</h2>
 
                 <p>
-                    Aquí podremos registrar a cada integrante
-                    una sola vez.
+                    Cada persona será registrada una sola vez
+                    y posteriormente podrá seleccionarse en
+                    préstamos o presentaciones.
                 </p>
 
-                <button class="boton-principal">
+                <a href="#" class="boton">
                     + Nueva persona
-                </button>
+                </a>
 
             </div>
 
@@ -411,31 +351,26 @@
 
         <!-- PRESENTACIONES -->
 
-        <section id="presentaciones" style="display:none;">
+        <section id="presentaciones">
 
-            <div class="encabezado">
+            <h1>📅 Presentaciones</h1>
 
-                <h1>📅 Presentaciones</h1>
+            <p class="subtitulo">
+                Organización del vestuario para cada presentación.
+            </p>
 
-                <p>
-                    Organización del vestuario necesario
-                    para cada presentación.
-                </p>
+            <div class="caja">
 
-            </div>
-
-            <div class="seccion">
-
-                <h2>Presentaciones registradas</h2>
+                <h2>Presentaciones</h2>
 
                 <p>
-                    Aquí podremos crear presentaciones y
-                    asignar los vestuarios necesarios.
+                    Aquí podremos registrar presentaciones,
+                    fechas, vestuarios necesarios y personas.
                 </p>
 
-                <button class="boton-principal">
+                <a href="#" class="boton">
                     + Nueva presentación
-                </button>
+                </a>
 
             </div>
 
@@ -444,32 +379,26 @@
 
         <!-- PRÉSTAMOS -->
 
-        <section id="prestamos" style="display:none;">
+        <section id="prestamos">
 
-            <div class="encabezado">
+            <h1>🤝 Préstamos</h1>
 
-                <h1>🤝 Préstamos</h1>
+            <p class="subtitulo">
+                Control de entregas y devoluciones.
+            </p>
 
-                <p>
-                    Control de vestuario entregado a personas
-                    y seguimiento de sus devoluciones.
-                </p>
-
-            </div>
-
-            <div class="seccion">
+            <div class="caja">
 
                 <h2>Préstamos activos</h2>
 
                 <p>
-                    Aquí aparecerán los préstamos realizados,
-                    quién tiene cada elemento y cuándo debe
-                    devolverse.
+                    Aquí podremos saber quién tiene cada
+                    elemento y cuándo debe devolverlo.
                 </p>
 
-                <button class="boton-principal">
+                <a href="#" class="boton">
                     + Nuevo préstamo
-                </button>
+                </a>
 
             </div>
 
@@ -478,31 +407,26 @@
 
         <!-- REPARACIONES -->
 
-        <section id="reparaciones" style="display:none;">
+        <section id="reparaciones">
 
-            <div class="encabezado">
+            <h1>🔧 Reparaciones</h1>
 
-                <h1>🔧 Reparaciones</h1>
+            <p class="subtitulo">
+                Control del vestuario que necesita reparación.
+            </p>
 
-                <p>
-                    Control de vestuario que necesita reparación
-                    o mantenimiento.
-                </p>
+            <div class="caja">
 
-            </div>
-
-            <div class="seccion">
-
-                <h2>Reparaciones pendientes</h2>
+                <h2>Reparaciones</h2>
 
                 <p>
-                    Aquí podremos registrar qué elemento está
-                    siendo reparado y su estado.
+                    Aquí registraremos el elemento,
+                    motivo, responsable y estado.
                 </p>
 
-                <button class="boton-principal">
+                <a href="#" class="boton">
                     + Nueva reparación
-                </button>
+                </a>
 
             </div>
 
@@ -511,26 +435,21 @@
 
         <!-- HISTORIAL -->
 
-        <section id="historial" style="display:none;">
+        <section id="historial">
 
-            <div class="encabezado">
+            <h1>📜 Historial</h1>
 
-                <h1>📜 Historial</h1>
+            <p class="subtitulo">
+                Trazabilidad de los movimientos del vestuario.
+            </p>
 
-                <p>
-                    Registro de los movimientos realizados
-                    en el sistema.
-                </p>
+            <div class="caja">
 
-            </div>
-
-            <div class="seccion">
-
-                <h2>Historial de movimientos</h2>
+                <h2>Historial</h2>
 
                 <p>
-                    Aquí quedará registrada la trazabilidad
-                    del vestuario.
+                    Aquí quedará registrada la actividad
+                    realizada en el sistema.
                 </p>
 
             </div>
@@ -541,8 +460,6 @@
     </main>
 
 
-    <!-- JAVASCRIPT -->
+</body>
 
-    <script>
-
-        function mostrarSeccion(nombre
+</html>
